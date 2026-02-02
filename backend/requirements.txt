@@ -1,0 +1,15 @@
+django
+djangorestframework
+django-cors-headers
+google-genai
+python-dotenv
+faiss-cpu
+numpy
+sentence-transformers
+langchain
+langchain-community
+langchain-text-splitters
+pypdf
+langdetect
+deep-translator
+requests

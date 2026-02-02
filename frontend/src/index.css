@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Eraser Dark Palette */
+  --bg-primary: #0f172a;
+  /* Slate 900 */
+  --bg-secondary: #1e293b;
+  /* Slate 800 */
+  --bg-canvas: #020617;
+  /* Slate 950 (Deep Dark for Canvas) */
+  --bg-surface: #1e293b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #a855f7;
+  --accent-green: #22c55e;
+  --accent-red: #ef4444;
+  --accent-amber: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-image:
+    radial-gradient(1200px 600px at 10% 10%, rgba(59, 130, 246, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(168, 85, 247, 0.12), transparent 55%),
+    radial-gradient(700px 420px at 70% 90%, rgba(6, 182, 212, 0.10), transparent 55%);
+  background-attachment: fixed;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* UI Utilities */
+.glass {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-sans);
+  transition: all 0.2s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid rgba(6, 182, 212, 0.7);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 50%, var(--accent-purple) 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.22);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 40px rgba(59, 130, 246, 0.28);
+}
+
+.btn-outline {
+  background: rgba(2, 6, 23, 0.35);
+  color: var(--text-primary);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  border-color: rgba(148, 163, 184, 0.45);
+  background: rgba(2, 6, 23, 0.5);
+  transform: translateY(-1px);
+}
+
+input,
+textarea {
+  font-family: var(--font-sans);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(6, 182, 212, 0.6) !important;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.12);
+}
+
+/* BPMN.io Overrides for Dark Mode - PREMIUM STYLING */
+.bjs-powered-by {
+  display: none !important;
+}
+
+/* Default Diagram Background with subtle gradient */
+.djs-container {
+  background: linear-gradient(135deg, var(--bg-canvas) 0%, #0a1628 50%, var(--bg-canvas) 100%) !important;
+}
+
+/* Base Node Styling - Smooth & Premium */
+.djs-visual rect,
+.djs-visual circle,
+.djs-visual polygon {
+  stroke: #475569 !important;
+  stroke-width: 2px !important;
+  stroke-dasharray: none !important;
+  fill: rgba(30, 41, 59, 0.92) !important;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  transition: all 0.3s ease;
+}
+
+.djs-visual text {
+  fill: #f1f5f9 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.djs-visual path {
+  stroke: #64748b !important;
+  stroke-width: 2px !important;
+  fill: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Arrow markers - smoother */
+.djs-visual marker path {
+  fill: #64748b !important;
+}
+
+/* Hover effects for all elements */
+.djs-element:hover .djs-visual rect,
+.djs-element:hover .djs-visual circle,
+.djs-element:hover .djs-visual polygon {
+  filter: drop-shadow(0 6px 20px rgba(100, 116, 139, 0.5)) brightness(1.1);
+}
+
+/* --- PREMIUM NEON ACCENTS --- */
+
+/* Start Event - Cyan Glow */
+.node-start .djs-visual circle,
+.djs-element[data-element-id*="StartEvent"] .djs-visual circle {
+  stroke: var(--accent-cyan) !important;
+  stroke-width: 3px !important;
+  fill: rgba(6, 182, 212, 0.15) !important;
+  filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.6)) drop-shadow(0 4px 16px rgba(6, 182, 212, 0.3));
+}
+
+/* End Event - Elegant Slate with subtle glow */
+.node-end .djs-visual circle,
+.djs-element[data-element-id*="End"] .djs-visual circle {
+  stroke: #94a3b8 !important;
+  stroke-width: 3px !important;
+  fill: rgba(100, 116, 139, 0.15) !important;
+  filter: drop-shadow(0 0 8px rgba(100, 116, 139, 0.4)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+/* Task Nodes - Blue Glow with glassmorphism effect */
+.node-task .djs-visual rect,
+.djs-element[data-element-id*="Task"] .djs-visual rect {
+  stroke: var(--accent-blue) !important;
+  stroke-width: 2px !important;
+  stroke-dasharray: none !important;
+  fill: rgba(59, 130, 246, 0.12) !important;
+  rx: 12px !important;
+  ry: 12px !important;
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.4)) drop-shadow(0 8px 24px rgba(59, 130, 246, 0.2));
+}
+
+/* Gateway - Purple Glow (Decision Points) */
+.node-gateway .djs-visual polygon,
+.djs-element[data-element-id*="Gateway"] .djs-visual polygon {
+  stroke: var(--accent-purple) !important;
+  stroke-width: 2px !important;
+  fill: rgba(168, 85, 247, 0.15) !important;
+  filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.5)) drop-shadow(0 8px 24px rgba(168, 85, 247, 0.25));
+}
+
+/* --- PREMIUM GROUPS --- */
+.djs-group .djs-visual rect {
+  fill: rgba(30, 41, 59, 0.2) !important;
+  stroke: rgba(148, 163, 184, 0.4) !important;
+  stroke-width: 1.5px !important;
+  stroke-dasharray: 6, 4 !important;
+  rx: 16px;
+  ry: 16px;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.2));
+}
+
+.djs-group .djs-label {
+  font-size: 11px !important;
+  fill: var(--text-secondary) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Sequence Flow Labels */
+.djs-label {
+  fill: #cbd5e1 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* Selection and Hover States */
+.djs-element.selected .djs-outline {
+  stroke: var(--accent-cyan) !important;
+  stroke-width: 2px !important;
+  fill: none !important;
+}
+
+/* Connection hover */
+.djs-connection.hover .djs-visual path {
+  stroke: #0066cc !important;
+}
